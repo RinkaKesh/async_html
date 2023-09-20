@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideShow</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        text-align: center;
+        margin-top: 45px;
+    }
+    .slide-container{
+        position: relative;
+        width:40%;
+    }
+    .slide img{
+        width :35%;
+        height:300px;
+    }
+    .arrow{
+        cursor: pointer;
+        position:absolute;
+        top:35%;
+        color: beige;
+        background-color: aqua;
+        font-weight: bolder;
+        font-size: 30px;
+        /* padding: 10px 20px; */
+    }
+    .after{
+        right:5px
+    }
+    .before{
+        left:15px
+    }
+    h3{
+        color:brown;
+        background-color:pink;
+        display: inline;
+        line-height: 100px;
+    }
+</style>
+<body>
+<div id="slide-container">
+    <div class="slide">
+        <img src="d:\taj.jpg" alt=""><br>
+        <h3>Taj Mahal</h3>
+    </div>
+    <div class="slide">
+        <img src="d:\fatehpur.jpg" alt=""><br>
+        <h3>Fatehpur Sikri</h3>
+        
+    </div>
+    <div class="slide">
+        <img src="d:\charminar.jpg" alt=""><br>
+        <h3>Charminar</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\hazarduari.jpg" alt=""><br>
+        <h3>Hazarduari</h3>
+
+    </div>
+    <div class="slide">
+        <img src="d:\indiagate.jpg" alt=""><br>
+        <h3>India Gate</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\gateway.jpg" alt=""><br>
+        <h3>Gateway Of India</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\victoria.jpg" alt=""><br>
+        <h3>Victoria Memorial</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\curzongate.jpg" alt=""><br>
+        <h3>Curzon Gate</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\hawamahal.jpg" alt=""><br>
+        <h3>Hawamahal</h3>
+
+
+    </div>
+
+    <div class="slide">    
+    <img src="d:\golden temple.jpg" alt=""><br>
+    <h3>Golden Temple</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\lotus templejpg.jpg" alt=""><br>
+        <h3>Lotus Temple</h3>
+
+    </div>
+    <div class="slide">
+        <img src="d:\sahidminar.jpg" alt=""><br>
+        <h3>Sahid Minar</h3>
+
+    </div>
+    <div class="slide">
+        <img src="d:\meenakshi temple.jpg" alt=""><br>
+        <h3>Meenakshi Temple</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\ajantaCaves.jpg" alt=""><br>
+        <h3>Ajantha Caves</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\tirupati.jpg" alt=""><br>
+        <h3>Tirupati Temple</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\belur.jpg" alt=""><br>
+        <h3>Belur Math</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\parliament.jpg" alt=""><br>
+        <h3>Parliament Of India</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\iskon.jpg" alt=""><br>
+        <h3>Iskon Temple</h3>
+
+
+    </div>
+    <div class="slide">
+        <img src="d:\raisina.jpg" alt=""><br>
+        <h3>The Raisina Hill</h3>
+
+
+    </div>
+    <span class="arrow before" onclick="controller(-1)"> < </span>
+    <span class="arrow after"  onclick="controller(+1)"> > </span>
+</div>
+
+<script>
+    
+    
+    let slide=0;
+    function controller(n){
+     slide+=n;
+     slideshow(slide);
+    }
+
+    slideshow(slide);
+
+    function slideshow(num){
+        let slides=document.getElementsByClassName("slide");
+
+        if(num==slides.length){
+            slide=0;
+            num=0;
+        }
+        if(num<0){
+            slide=slides.length-1;
+            num=slides.length-1;
+
+        }
+        for(let i of slides){
+            i.style.display="none";
+        }
+        slides[num].style.display="block";
+
+    }
+</script>
+    
+</body>
+</html>

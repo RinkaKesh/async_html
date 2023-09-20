@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+    *{text-align: center;
+        margin:25px;
+
+    }
+    h2{color:  royalblue;
+        text-decoration: underline;
+    }
+    #hour{
+        border:none;
+        border-color: aqua;
+        border-radius: 4px;
+        box-sizing: content-box;
+        background-color: aqua;
+    }
+</style>
+<body>
+    <H2>RINKA'S TIMER</H2>
+    <DIV id="display"></DIV>
+    <input type="number" id="hour" placeholder="HOUR">
+    <input type="number" id="minute" placeholder="MINUTE">
+    <input type="number" id="second" placeholder="SECOND">
+<div id="btn">
+    <button id="start" onclick="CS">START</button>
+    <button id="pause" onclick="PC">PAUSE</button>
+    <button id="reset" onclick="RC">RESET</button>
+</div>
+
+<script>
+ time=function(){
+
+    let D=document.getElementById("display");
+
+    let H=document.getElementById("hour");
+    let M=document.getElementById("minute");
+    let S=document.getElementById("second");
+
+    let SB=document.getElementById("start");
+    let PB=document.getElementById("pause");
+    let RB=document.getElementById("reset");
+
+ let interval=null;
+ let totalTime=0;
+//  let running=false;
+ totalSecond=function(){
+    totalTime=Number(H.value)*3600 + Number(M.value)*60 + Number(S.value)
+   
+ }
+
+    totalSecond();
+    totalTime--;
+    if(totalTime>=0){
+      let Hrs=Math.floor(totalTime/3600);
+      let Min=Math.floor((totalTime/60)-(Hrs*60));
+      let Sec=totalTime-((Hrs*3600)+(Min*60));
+
+      H.value=Hrs;
+      M.value=Min;
+      S.value=Sec;
+
+
+    }
+    else {
+        D.innerText="Time Over"
+    }
+ }
+
+
+ function CS(){
+    // if(running==false){
+    //  running=true;
+     clearInterval(interval);
+     interval=setInterval(time,1000);
+    // }
+    D.innerText="Timer is running";
+
+     
+ }
+
+ function PB(){
+    // running=false;
+    clearInterval(interval);
+    D.innerText="Timer Paused";
+
+ }
+
+ function RB(){
+    // running=false;
+    clearInterval(interval);
+    H.value=0;
+      M.value=0;
+      S.value=0;
+
+ }
+
+
+</script>
+
+
+    
+
+    
+
+
+
+    
+</body>
+ </html>
